@@ -11,6 +11,12 @@ class MealDetail extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(meal.title),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.favorite),
+            )
+          ],
         ),
         body: SingleChildScrollView(
           child: Column(
