@@ -5,7 +5,7 @@ class MealDetail extends StatelessWidget {
   const MealDetail({
     super.key,
     required this.meal,
-    required this.onToggleFavorite,   
+    required this.onToggleFavorite,
   });
 
   final Meal meal;
@@ -18,7 +18,9 @@ class MealDetail extends StatelessWidget {
           title: Text(meal.title),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                onToggleFavorite(meal);
+              },
               icon: const Icon(Icons.favorite),
             )
           ],
