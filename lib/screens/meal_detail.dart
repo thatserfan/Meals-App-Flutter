@@ -5,11 +5,9 @@ class MealDetail extends StatelessWidget {
   const MealDetail({
     super.key,
     required this.meal,
-    required this.onToggleFavorite,
   });
 
   final Meal meal;
-  final void Function(Meal meal) onToggleFavorite;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +17,6 @@ class MealDetail extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: () {
-                onToggleFavorite(meal);
               },
               icon: const Icon(Icons.favorite),
             )
