@@ -31,6 +31,8 @@ class _CategoriesScreeenState extends State<CategoriesScreeen>
       lowerBound: 0,
       upperBound: 1,
     );
+
+    _animationController.forward();
   }
 
   @override
@@ -56,8 +58,9 @@ class _CategoriesScreeenState extends State<CategoriesScreeen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GridView(
+    return AnimatedBuilder(
+      animation: _animationController,
+      child: GridView(
         padding: const EdgeInsets.all(24),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
@@ -68,11 +71,16 @@ class _CategoriesScreeenState extends State<CategoriesScreeen>
         children: [
           for (final category in availableCategories)
             CategoryGridItem(
-                category: category,
-                onSelectCategory: () {
-                  _selectedCategory(context, category);
-                }),
+              category: category,
+              onSelectCategory: () {
+                _selectedCategory(context, category);
+              },
+            ),
         ],
+      ),
+      builder: (context, child) => Padding(
+        padding: EdgeInsets.only(top: 100 - _animationController.value * 100),
+        child: child,
       ),
     );
   }
