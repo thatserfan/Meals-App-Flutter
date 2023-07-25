@@ -39,8 +39,10 @@ class MealDetail extends ConsumerWidget {
                     child: child,
                   );
                 },
-                child:
-                    Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
+                child: Icon(
+                  isFavorite ? Icons.favorite : Icons.favorite_border,
+                  key: ValueKey(isFavorite),
+                ),
               ),
             )
           ],
